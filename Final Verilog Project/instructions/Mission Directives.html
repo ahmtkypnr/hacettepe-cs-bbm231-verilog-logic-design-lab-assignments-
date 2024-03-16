@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)https://web.cs.hacettepe.edu.tr/~bbm231/final_verilog_project_2023/#mission -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Mission Directives</title>
+	<link rel="shortcut icon" sizes="192x192" type="image/png" href="https://web.cs.hacettepe.edu.tr/~bbm231/final_verilog_project_2023/favicon.ico">
+	<script>document.write('<link href="css/style.css?v=' + Date.now() + '" rel="stylesheet" />');</script><link href="./Mission Directives_files/style.css" rel="stylesheet">
+
+	<script src="./Mission Directives_files/jquery-3.6.0.min.js.indir"></script>
+	<script>
+		$.ajaxSetup({
+            cache: false
+        });
+		
+		$(window).on('hashchange', function () {
+            checkHash();
+        });
+
+        function checkHash() {
+            let page = window.location.hash;
+            if (page !== "") {
+                loadPage(page);
+            } else {
+                loadMain();
+            }
+        }
+
+		function loadMain() {
+			loadPage("#intro");
+		}
+		
+        function loadPage(page, callback = () => {
+        }) {
+            let url = "subpages/" + page.substring(1, page.length) + ".html";
+            $("#dynamic-content").load(url, loaded => {
+				$(window).scrollTop(0);
+                callback();
+            });
+        }
+		
+		$( document ).ready(function() {
+			checkHash();
+		});
+	</script>
+	<script>
+		var prevScrollpos = window.pageYOffset;
+		window.onscroll = function() {
+		var currentScrollPos = window.pageYOffset;
+		  if (prevScrollpos > currentScrollPos) {
+			document.getElementById("banner").style.top = "0";
+		  } else {
+			document.getElementById("banner").style.top = "-8vh";
+		  }
+		  prevScrollpos = currentScrollPos;
+		}
+	</script>
+</head>
+<body>
+
+<div id="banner" class="navbar" style="top: -8vh;">
+	<a href="https://web.cs.hacettepe.edu.tr/~bbm231/final_verilog_project_2023/#">
+		<img src="./Mission Directives_files/banner.svg" class="logo">
+	</a>
+</div>
+<div id="dynamic-content"><script>document.title = "Mission Directives"</script>
+
+<img id="myVideo" class="background-image" src="./Mission Directives_files/background_bg4.jpg">
+<div class="background-curtain"></div>
+
+<div class="timeline-title-div">
+	<img src="./Mission Directives_files/banner_logo.png" class="timeline-wolf-image">
+</div>
+
+<!-- 
+<div class="timeline-title-div">
+	<img src="images/woofwoof.png" alt="Börü Timeline" class="timeline-wolf-image">
+	<img src="images/timelineTitle.png" alt="Börü Timeline" class="timeline-title-image">
+
+	<h1 class="enigma">Mission Directives</h1>
+<hr>
+</div> -->
+
+
+<h1 class="badcoma acikRedText">MISSION DIRECTIVES</h1>
+<hr>
+
+<div class="lh2 enigma textblock">
+
+	<h2 class="enigma newRedSpan">KAAN Integrated Combat Management System</h2>
+	
+	<div class="removemewhenfinalized"><span class="newRedSpan">KAAN Integrated Combat Management System (ICMS)</span> is envisioned as an embedded hardware module that manages target tracking and threat assesment, and provides environmental support in combat missions. As illustrated in the circuit diagram below, it will be connected to other system units such as <span class="newRedSpan">Flight Control System</span>, <span class="newRedSpan">Environmental Sensing Unit</span>, <span class="newRedSpan">Radar</span>, <span class="newRedSpan">Status Control Unit</span>, and <span class="newRedSpan">SOM-J Cruise Missile Launcher System</span>.</div>
+	
+	<br><br>
+
+	<img class="w100" src="./Mission Directives_files/ICMSModule.svg">
+	<br><br>
+	<!-- <br><br>
+	<div class="fr">
+		<img class="siganfu-back-image" src="images/siganfu_and_gun_backview_transparent.png"/>
+	</div>
+
+	<span class="newRedSpan">The SIGANFU Machine Gun</span> is controlled by an embedded chip that has a direct link to the helmet's <span class="redSpan">target acquisition system</span> and the combatant's <span class="redSpan">neural link</span>. The controller chip ensures that the machine gun <span class="redSpan">never misses or shoots off</span> the target, and it handles ammo reload and gun cooling in a matter of <span class="redSpan">milliseconds</span>. Extremely fast cooling of the gun is achieved with <span class="redSpan">liquid neon</span>, an inert cryogenic fluid with a higher heat of vaporization for an equal volume than does either liquid helium or liquid hydrogen, making it uniquely adequate for applications having limited available coolant space. <br><br><br><br>
+		<br><br>
+	<div class="fl arm">
+		<img class="w20" src="images/siganfu_gun_arm_transparent.png"/>
+	</div> -->
+	<!-- ----------- NEED TO INSERT CIRCUIT MODULE PIC SOMEWHERE HERE ------------- -->
+	<!-- <img class="inlineText" src="images/siganfu_armor_transparent.png"/> -->
+<!-- 
+	<span class="redSpan">The SIGANFU controller chip</span> receives inputs from the helmet and the combatant's <span class="redSpan"><span class="redSpan">neural link</span></span> regarding the targets (<span class="redSpan">target locking, enemy combatant detection, fire command</span>), as well as the core temperature status of the gun from a heat sensor installed to prevent <span class="redSpan">overheating</span>.  <br><br>
+
+	One of the output pins of the chip controls the gun's shooting and firing rate, while the rest provide feedback to the helmet about the status of the gun and ammo. <br><br>
+<br><br>
+	<img class="w100" src="images/boratav_old.png"/> -->
+	
+	<br><br>
+	<div class="removemewhenfinalized">
+		<span class="newRedSpan">ICMS</span> will consist of two separate units: <span class="newRedSpan">Advanced Radar and Threat Assessment Unit (ARTAU)</span> and <span class="newRedSpan">Environmental and Combat Support Unit (ECSU)</span>. These two modules must be designed first before <span class="newRedSpan">ICMS</span> can be assembled. The full functionality of <span class="newRedSpan">ICMS</span> is summarized as follows:
+		<br><ul>
+				<li>It will operate on <span class="newRedSpan">the system clock</span> of 10 kilohertz (kHz).</li>
+				<li>It should be able to reset on the high <span class="newRedSpan">system reset</span> signal.</li>
+				<li>It will receive input signals from the <span class="newRedSpan">Flight Control System</span>, <span class="newRedSpan">Environmental Sensing Unit</span> and the <span class="newRedSpan">Radar</span>.</li>
+				<!-- regarding target tracking using radar and target elimination by firing <span class="newRedSpan">CIRIT</span> missiles towards the target. -->
+				<li>It will be able to initiate the radar pulse and listen for the echo response from the radar to scan for targets, calculate the distance to the target, and assess the threat level. </li>
+				<!-- <li>It will be able to fire missiles towards the target if the lock on the target is obtained and the firing command is received from <span class="newRedSpan">KIZILELMA Remote Control System</span> issued by the operator.</li> -->
+				<li>It will be able to analyze environmental conditions and provide crucial feedback to the pilot and flight control systems.</li>
+				<li>It will be able to send status information important for target tracking, flight and combat management.</li>
+				
+			</ul>
+	</div>
+	<br>
+	<img class="w100" src="./Mission Directives_files/kaan2.jpg"> 
+	<br><br>
+	<div class="removemewhenfinalized"><span class="newRedSpan">TAI</span> has been known to trust only the best engineers to work on their next-gen defense technology, and that is why they employed the <span class="newRedSpan">HUBBM</span> students from Hacettepe Computer Engineering Department to work on this crucial mission. As the tumultuous year of 2023 was approaching its miserable end with all the wars and economic crises, <span class="newRedSpan">TAI</span> issued a mission for the <span class="newRedSpan">HUBBM</span> students that is vital for future defense operations on Turkish soil. The top-secret mission is to design the <span class="newRedSpan">KAAN Integrated Combat Management System (ICMS)</span>. <br><br>
+
+	The students were oblivious to the importance of the mission. They thought it was just an ordinary final project for the Logic Design Lab course they were taking that year. <span class="newRedSpan">Little did they know they were actually designing a piece of the future technology</span>. <br><br></div>
+
+</div>
+
+<div class="animate-flicker enigma motto">
+	<a href="https://web.cs.hacettepe.edu.tr/~bbm231/final_verilog_project_2023/#instructions_ECSU" class="whiteText text-decoration-none">&gt;&gt; Click here to go to the Instructions &lt;&lt;</a>
+	<br><br>
+</div></div>
+
+
+<audio id="audio1" src="audio/1.ogg?v=1" style="display: none"></audio>
+<audio id="audio2" src="audio/2.ogg?v=1" style="display: none"></audio></body></html>

@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<!-- saved from url=(0085)https://web.cs.hacettepe.edu.tr/~bbm231/final_verilog_project_2023/#instructions_ECSU -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Instructions Part 00</title>
+	<link rel="shortcut icon" sizes="192x192" type="image/png" href="https://web.cs.hacettepe.edu.tr/~bbm231/final_verilog_project_2023/favicon.ico">
+	<script>document.write('<link href="css/style.css?v=' + Date.now() + '" rel="stylesheet" />');</script><link href="./Instructions Part 00_files/style.css" rel="stylesheet">
+
+	<script src="./Instructions Part 00_files/jquery-3.6.0.min.js.indir"></script>
+	<script>
+		$.ajaxSetup({
+            cache: false
+        });
+		
+		$(window).on('hashchange', function () {
+            checkHash();
+        });
+
+        function checkHash() {
+            let page = window.location.hash;
+            if (page !== "") {
+                loadPage(page);
+            } else {
+                loadMain();
+            }
+        }
+
+		function loadMain() {
+			loadPage("#intro");
+		}
+		
+        function loadPage(page, callback = () => {
+        }) {
+            let url = "subpages/" + page.substring(1, page.length) + ".html";
+            $("#dynamic-content").load(url, loaded => {
+				$(window).scrollTop(0);
+                callback();
+            });
+        }
+		
+		$( document ).ready(function() {
+			checkHash();
+		});
+	</script>
+	<script>
+		var prevScrollpos = window.pageYOffset;
+		window.onscroll = function() {
+		var currentScrollPos = window.pageYOffset;
+		  if (prevScrollpos > currentScrollPos) {
+			document.getElementById("banner").style.top = "0";
+		  } else {
+			document.getElementById("banner").style.top = "-8vh";
+		  }
+		  prevScrollpos = currentScrollPos;
+		}
+	</script>
+<style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+</style></head>
+<body style="margin-top: 8vh;">
+
+<div id="banner" class="navbar" style="top: -8vh;">
+	<a href="https://web.cs.hacettepe.edu.tr/~bbm231/final_verilog_project_2023/#">
+		<img src="./Instructions Part 00_files/banner.svg" class="logo">
+	</a>
+</div>
+<div id="dynamic-content" style="background: unset;"><script>document.title = "Instructions Part 00"</script>
+
+<img id="myVideo" class="background-image" src="./Instructions Part 00_files/background_bg5.jpg">
+<div class="background-curtain"></div>
+
+<div class="timeline-title-div">
+	<img src="./Instructions Part 00_files/banner_logo.png" class="timeline-wolf-image">
+</div>
+
+<!-- 
+<div class="timeline-title-div">
+	<img src="images/woofwoof.png" alt="Börü Timeline" class="timeline-wolf-image">
+	<img src="images/timelineTitle.png" alt="Börü Timeline" class="timeline-title-image">
+
+	<h1 class="enigma">Mission Directives</h1>
+<hr>
+</div> -->
+
+
+<h1 class="badcoma acikRedText">INSTRUCTIONS - PART 00</h1>
+<hr>
+
+<div class="lh2 enigma textblock">
+
+	<h2 class="enigma newRedSpan">Environmental and Combat Support Unit</h2>
+	<div class="removemewhenfinalized">
+		The first module to be designed is the <span class="newRedSpan">Environmental and Combat Support Unit (ECSU)</span>, which is essential for supporting fighter jet operations in various environmental conditions and combat scenarios. This unit processes data from external sensors, analyzing weather conditions and other environmental factors. Its primary function is to assess the safety of the environment for flight and combat operations.<br><br>
+		
+		<img class="w50" src="./Instructions Part 00_files/ECSUModule.svg">
+	</div>
+
+
+	<h2 class="enigma newRedSpan">Inputs and Outputs</h2>
+
+	The finite state machine of the ECSU chip depends on six inputs described below: <br><br>
+	<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-0ihs redSpan">Inputs</th>
+		<th class="tg-0ihs redSpan">Description</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-0ihs">CLK</td>
+		<td class="tg-0ihs">This input is the system clock signal provided to the chip from the system. The clock cycle is set to 100 μs (microseconds).</td>
+	  </tr>
+	  <tr>
+		<td class="tg-0ihs">RST</td>
+		<td class="tg-0ihs">This input provides a reset signal (on <span class="newRedSpan">HIGH</span>) which resets the system to its default settings (<span class="newRedSpan">ALL_CLEAR</span> state).</td>
+	  </tr>
+	  
+	  <tr>
+		<td class="tg-0ihs">thunderstorm</td>
+		<td class="tg-0ihs">This input is supplied to the chip from the <span class="newRedSpan">Environmental Sensing Unit</span>. When this signal becomes <span class="newRedSpan">HIGH</span>, it means that thunderstorm is detected.</td>
+	  </tr>
+	  <tr>
+		<td class="tg-0ihs">[5:0] wind</td>
+		<td class="tg-0ihs">This 6-bit input signal also comes from the <span class="newRedSpan">Environmental Sensing Unit</span>. It specifies the wind speed in knots.</td>
+	  </tr>
+	  <tr>
+		<td class="tg-0ihs">[1:0] visibility</td>
+		<td class="tg-0ihs">This 2-bit input signal also comes from the <span class="newRedSpan">Environmental Sensing Unit</span>. It specifies the level of outdoor visibility. The possible levels are: completely clear (<span class="newRedSpan">00</span>), limited visibility (<span class="newRedSpan">01</span>), somewhat clear (<span class="newRedSpan">10</span>), and completely invisible (<span class="newRedSpan">11</span>).</td>
+	  </tr>
+	  <tr>
+		<td class="tg-0ihs">[7:0] temperature</td>
+		<td class="tg-0ihs">This 8-bit input signal also comes from the <span class="newRedSpan">Environmental Sensing Unit</span>. It specifies the outdoor temperature in Celsius.</td>
+	  </tr>
+	</tbody>
+	</table>
+
+
+	<br><br>
+	ECSU chip has three outputs described below: <br><br>
+	<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-0ihs redSpan">Outputs</th>
+		<th class="tg-0ihs redSpan">Description</th>
+	  </tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="tg-0ihs">severe_weather</td>
+			<td class="tg-0ihs">This 1-bit output signal triggers the severe weather alert that is crucial for flight and combat management.</td>
+		  </tr>
+		  <tr>
+			<td class="tg-0ihs">emergency_landing_alert</td>
+			<td class="tg-0ihs">This 1-bit output signal triggers emergency landing in severely compromising weather conditions. 
+				<!-- <br><br><img class="armorSide1" src="images/ciritpodu.jpg"/><img class="armorSide2" src="images/ciritFuzesi.jpg"/> -->
+			</td>
+		</tr>
+		<tr>
+			<td class="tg-0ihs">[1:0] ECSU_state</td>
+			<td class="tg-0ihs">This 2-bit output represents the state of the <span class="newRedSpan">ECSU</span>. <span class="newRedSpan">00</span> represents the 
+				<span class="newRedSpan">ALL_CLEAR</span> state, <span class="newRedSpan">01</span> represents the <span class="newRedSpan">CAUTION</span> state, 
+				<span class="newRedSpan">10</span> represents the <span class="newRedSpan">HIGH_ALERT</span> state, and <span class="newRedSpan">11</span> represents the 
+				<span class="newRedSpan">EMERGENCY</span> state. 
+			</td>
+		</tr>
+	</tbody>
+	</table>
+
+
+
+
+<!-- <h2 class="enigma newRedSpan">ECSU Specifications</h2>
+<span class="newRedSpan">ECSU</span> has four states as described below:
+<br><br>
+	<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-0ihs redSpan">Outputs</th>
+		<th class="tg-0ihs redSpan">Description</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-0ihs min-15w">State 00: <span class="newRedSpan">ALL_CLEAR</span></td>
+		<td class="tg-0ihs">This is the default and start state. In this state, all outputs are 0.</td>
+	  </tr>
+	  <tr>
+		<td class="tg-0ihs min-15w">State 01: <span class="newRedSpan">CAUTION</span></td>
+		<td class="tg-0ihs">This state is a buffer state that <span class="newRedSpan">WCU</span> must go through before issuing any firing commands. This state makes sure that missile is never launched unless the target is definitely locked on.</td>
+	  </tr>
+	  <tr>
+		<td class="tg-0ihs min-15w">State 10: <span class="newRedSpan">HIGH_ALERT</span></td>
+		<td class="tg-0ihs">In this state, <span class="newRedSpan">WCU</span> can finally issue the command to launch a missile and eliminate the target by setting the <span class="newRedSpan">launch_missile</span> signal 
+			<span class="newRedSpan">HIGH</span> for one clock cycle (10 &#956;s).</td>
+	  </tr>
+	  <tr>
+		<td class="tg-0ihs min-15w">State 11: <span class="newRedSpan">EMERGENCY</span></td>
+		<td class="tg-0ihs">When there are no more missile left, <span class="newRedSpan">WCU</span> goes into this state and nevel leaves unless it is reset. Resetting is performed at the headquarters when new the 
+			<span class="newRedSpan">CIRIT Quad Pack Launcher</span> is refilled with four new missiles.</td>
+	  </tr>
+	</tbody>
+	</table>
+<br><br>
+
+<div class="removemewhenfinalized">
+	<span class="newRedSpan">WCU</span> state transition diagram is given below.
+<br><br>
+	<img class="w50" src="images/ECSU.svg"/>
+</div>
+
+
+
+<h3 class="enigma redSpan">System Behavior &#8212; State Transitions</h3>
+	<div class="removemewhenfinalized">
+		The state transitions and outputs are synchronized with the rising edge of the <span class="newRedSpan">clk</span>. The system behavior is described below.
+
+		<ul>
+			<li>When <span class="newRedSpan">WCU</span> is reset, it must be in its start and default state <span class="newRedSpan">IDLE</span>. It should stay in this state until the signal 
+				<span class="newRedSpan">target_locked</span> becomes <span class="newRedSpan">HIGH</span>, signaling that there is a lock on a target that may potentially get fired at. At that point,
+				<span class="newRedSpan">WCU</span> should move to the <span class="newRedSpan">TARGET_LOCKED</span> state. </li>
+			<li> While in the <span class="newRedSpan">TARGET_LOCKED</span> state, two situations can happen:
+				<ol>
+					<li><span class="newRedSpan">target_locked</span> signal can become <span class="newRedSpan">LOW</span> meaning that the lock on the target is lost, at which point <span class="newRedSpan">WCU</span> must 
+					go back to the <span class="newRedSpan">IDLE</span> state. </li>
+					<li><span class="newRedSpan">fire_command</span> signal can become <span class="newRedSpan">HIGH</span> meaning that the firing order has been issued and a missile should be launched towards the target.
+					In this case, at the next rising edge of the <span class="newRedSpan">clk</span>, <span class="newRedSpan">WCU</span> should move to the <span class="newRedSpan">FIRE</span> state and launch a missile 
+					by setting <span class="newRedSpan">launch_missile</span> signal to <span class="newRedSpan">HIGH</span> for 10 &#956;s (one clock cycle).</li>
+				</ol>
+			</li>
+			<li>Upon launching the missile in the <span class="newRedSpan">FIRE</span> state, at the next rising edge of the <span class="newRedSpan">clk</span>, <span class="newRedSpan">WCU</span> should immediately leave 
+			that state depending on the following conditions:
+				<ol>
+					<li>If <span class="newRedSpan">target_locked</span> signal is still <span class="newRedSpan">HIGH</span> and there are still some remaining missiles, <span class="newRedSpan">WCU</span> should move back to the 
+						<span class="newRedSpan">TARGET_LOCKED</span> state. </li>
+					<li>If <span class="newRedSpan">target_locked</span> signal is <span class="newRedSpan">LOW</span> and there are still some remaining missiles, <span class="newRedSpan">WCU</span> should move back to the 
+						<span class="newRedSpan">IDLE</span> state.</li>
+					<li>However, if there are no more missiles left, regardless of the <span class="newRedSpan">target_locked</span> signal, <span class="newRedSpan">WCU</span> should move to the dead 
+						<span class="newRedSpan">OUT_OF_AMMO</span> state and stay in it until reset.</li>
+				</ol>
+			</li>
+		</ul>
+		<br>
+		You will design the <span class="newRedSpan">WCU</span> according to the given specifications using the <span class="newRedSpan">behavioral design approach</span>.<br>
+	</div> -->
+
+
+	<h2 class="enigma newRedSpan">ECSU Specifications</h2>
+The <span class="newRedSpan">Environmental and Combat Support Unit</span> operates in four states as described below:
+<br><br>
+<table class="tg">
+<thead>
+    <tr>
+    <th class="tg-0ihs redSpan">State</th>
+    <th class="tg-0ihs redSpan">Description</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+    <td class="tg-0ihs min-15w">State 00: <span class="newRedSpan">ALL_CLEAR</span></td>
+    <td class="tg-0ihs">This is the default state indicating optimal environmental conditions for flight and combat. Here, all outputs are set to 0, signifying no severe weather or emergency conditions.</td>
+    </tr>
+    <tr>
+    <td class="tg-0ihs min-15w">State 01: <span class="newRedSpan">CAUTION</span></td>
+    <td class="tg-0ihs">This state is activated under marginal weather conditions, where caution is advised. Specific thresholds for wind, visibility, and temperature may trigger this state.</td>
+    </tr>
+    <tr>
+    <td class="tg-0ihs min-15w">State 10: <span class="newRedSpan">HIGH_ALERT</span></td>
+    <td class="tg-0ihs">Triggered by more extreme weather conditions, this state signifies the severe weather alert. It corresponds to situations like strong winds, extreme temperatures, or poor visibility.</td>
+    </tr>
+    <tr>
+    <td class="tg-0ihs min-15w">State 11: <span class="newRedSpan">EMERGENCY</span></td>
+    <td class="tg-0ihs">This state indicates critical environmental conditions, prompting an emergency landing alert. It's triggered by extreme weather scenarios like very high winds or temperatures beyond safe operational limits.</td>
+    </tr>
+</tbody>
+</table>
+<br><br>
+
+<div class="removemewhenfinalized">
+    The <span class="newRedSpan">ECSU</span> state transition diagram is given below.
+<br><br>
+    <img class="w80" src="./Instructions Part 00_files/ECSU.svg">
+</div>
+
+<h3 class="enigma redSpan">System Behavior — State Transitions</h3>
+<div class="removemewhenfinalized">
+	The state transitions in the <span class="newRedSpan">ECSU</span> are synchronized with the rising edge of the <span class="newRedSpan">CLK</span>. However, being a Mealy machine, the outputs may change asynchronously in response to the environmental inputs. The system behavior is described as follows:
+
+    <ul>
+		<li>
+			<strong>In the <span class="newRedSpan">ALL_CLEAR</span> state</strong>, the system monitors environmental inputs for any signs that may require a heightened alert. The transition to the <span class="newRedSpan">CAUTION</span> state occurs if wind speeds are between 11 and 15 (inclusive) knots or if visibility drops to 01 (limited visibility). On the other hand, the transition to the <span class="newRedSpan">HIGH_ALERT</span> state is triggered by any of the following conditions: presence of a thunderstorm, wind speeds exceeding 15 knots, temperatures above 35°C or below -35°C, or the lowest level of visibility (11) is detected (completely invisible).
+		</li>
+		<li>
+			<strong>The <span class="newRedSpan">CAUTION</span> state</strong> is entered under suboptimal but not severe environmental conditions. Here, the system will return to <span class="newRedSpan">ALL_CLEAR</span> if the wind speed decreases to 10 knots or below and visibility is at the highest level (00). Conversely, the state escalates to <span class="newRedSpan">HIGH_ALERT</span> if any of the following conditions occur: thunderstorm begins, the wind speed exceeds 15 knots, the temperature rises above 35°C or drops below -35°C, or visibility reaches the lowest level (11).
+		</li>
+		<li>
+			<strong>If the next state of the system is determined to be the <span class="newRedSpan">HIGH_ALERT</span> state</strong>, the system activates the severe weather alert immediately. This state is maintained unless environmental conditions worsen to trigger an emergency or improve to justify deescalation. The transition to <span class="newRedSpan">EMERGENCY</span> happens when temperatures fall below -40°C or rise above 40°C, or wind speeds exceed 20 knots. To return to the <span class="newRedSpan">CAUTION</span> state, conditions must improve to no thunderstorm, wind speeds at 10 knots or less, temperatures between -35°C and 35°C (both included), and visibility above the lowest level. If the next state is determined to be the <span class="newRedSpan">CAUTION</span> state while in <span class="newRedSpan">HIGH_ALERT</span> state, then severe weather alert should be deactivated.
+		</li>
+		<li>
+			<strong>The <span class="newRedSpan">EMERGENCY</span> state</strong> indicates extremely critical environmental conditions and triggers the emergency landing alert. This state is maintained under continuous severe conditions and is only reset when the system <span class="newRedSpan">RST</span> signal is triggered, typically after landing and a thorough reevaluation of environmental conditions.
+		</li>
+	</ul>
+	
+    <br>
+    Design the <span class="newRedSpan">ECSU</span> according to these specifications using a behavioral design approach in Verilog.<br>
+</div>
+
+
+	<h2 class="enigma newRedSpan">Example Tests and Waveforms</h2>
+	<div class="removemewhenfinalized">
+		In the waveform given below, you can see the results of the given sample testbench. Click on the figure to enlarge.<br><br>
+		<a href="./Instructions Part 00_files/waveform_ecsu.png" target="_blank"><img src="./Instructions Part 00_files/waveform_ecsu.png" class="w100"></a>
+		 <br>
+		
+
+	</div>
+
+<div class="animate-flicker enigma motto">
+	<a href="https://web.cs.hacettepe.edu.tr/~bbm231/final_verilog_project_2023/#instructions_ARTAU" class="whiteText text-decoration-none">&gt;&gt; Click here to go to the next Instructions &lt;&lt;</a>
+	<br><br>
+</div></div></div>
+
+
+<audio id="audio1" src="audio/1.ogg?v=1" style="display: none"></audio>
+<audio id="audio2" src="audio/2.ogg?v=1" style="display: none"></audio></body></html>
